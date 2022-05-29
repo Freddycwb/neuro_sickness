@@ -8,17 +8,21 @@ public class Player : MonoBehaviour
     public float stunTime;
     public GameObjectVariable player;
     public GameObjectVariable collectable;
-    public GameEvent actionButton,DropButton;
+    public GameEvent actionButton, DropButton;
     public GameEvent hackCancel;
     public BoolVariable canControl;
     public Vector3Variable movementChanger;
 
     private Rigidbody2D _rb;
+    private Animator _animator;
     private float _velocityX, _velocityY;
     private float _currentStunTime;
+    private string _currentState;
 
-    void Start() {
+    void Start()
+    {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         player.Value = gameObject;
     }
 
@@ -39,20 +43,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update()
+    {
         if (canControl.Value)
         {
             Move();
             Interact();
             Drop();
         }
+        PlayAnimation();
     }
-
-    void Move() {
-        if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0) {
+    private void Move()
+    {
+        if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+        {
             _velocityX = (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed * Time.deltaTime;
             _velocityY = (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed * Time.deltaTime;
-        } else {
+        }
+        else
+        {
             _velocityX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
             _velocityY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         }
@@ -71,6 +80,26 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             DropButton.Raise();
+        }
+    }
+
+    private void PlayAnimation()
+    {
+        if (_rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (_rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (_rb.velocity.magnitude > 1)
+        {
+            ChangeAnimatorState("PlayerWalk");
+        }
+        if (_rb.velocity.magnitude == 0)
+        {
+            ChangeAnimatorState("PlayerIdle");
         }
     }
 
@@ -132,5 +161,12 @@ public class Player : MonoBehaviour
             TakeDamage();
             Knockback(collision.transform.position, 0.5f);
         }
+    }
+
+    void ChangeAnimatorState(string newState)
+    {
+        if (_currentState == newState) return;
+        _animator.Play(newState);
+        _currentState = newState;
     }
 }
