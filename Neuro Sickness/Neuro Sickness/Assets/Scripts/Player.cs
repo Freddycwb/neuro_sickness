@@ -152,6 +152,10 @@ public class Player : MonoBehaviour
         {
             collectable.Value = null;
         }
+        if (collision.gameObject.GetComponent<ConveyorBelt>() != null)
+        {
+            movementChanger.Value = Vector3.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

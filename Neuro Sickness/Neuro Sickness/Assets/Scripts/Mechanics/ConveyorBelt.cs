@@ -116,7 +116,7 @@ public class ConveyorBelt : MonoBehaviour
             case moveType.downTop:
                 if (_playerOnArea)
                 {
-                    movementChanger.Value += Vector3.up * _currentSpeed * Time.deltaTime;
+                    movementChanger.Value = Vector3.up * _currentSpeed * Time.deltaTime;
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
@@ -126,7 +126,7 @@ public class ConveyorBelt : MonoBehaviour
             case moveType.diagonalUp:
                 if (_playerOnArea)
                 {
-                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime);
+                    movementChanger.Value = new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime);
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
@@ -136,7 +136,7 @@ public class ConveyorBelt : MonoBehaviour
             case moveType.leftRight:
                 if (_playerOnArea)
                 {
-                    movementChanger.Value += Vector3.right * _currentSpeed * Time.deltaTime;
+                    movementChanger.Value = Vector3.right * _currentSpeed * Time.deltaTime;
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
@@ -146,7 +146,7 @@ public class ConveyorBelt : MonoBehaviour
             case moveType.diagonalDown:
                 if (_playerOnArea)
                 {
-                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * -Time.deltaTime);
+                    movementChanger.Value = new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * -Time.deltaTime);
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
