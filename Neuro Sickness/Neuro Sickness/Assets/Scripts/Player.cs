@@ -57,13 +57,13 @@ public class Player : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
         {
-            _velocityX = (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed * Time.deltaTime;
-            _velocityY = (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed * Time.deltaTime;
+            _velocityX = (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed;
+            _velocityY = (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed;
         }
         else
         {
-            _velocityX = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            _velocityY = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            _velocityX = Input.GetAxis("Horizontal") * speed;
+            _velocityY = Input.GetAxis("Vertical") * speed;
         }
     }
 
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         Vector2 heading = transform.position - (Vector3)knockPos;
         float distance = heading.magnitude;
         Vector2 normalDirection = heading / distance;
-        _rb.AddForce(normalDirection * ((knockForce * 500) * Time.deltaTime), ForceMode2D.Impulse);
+        _rb.AddForce(normalDirection * ((knockForce * 500)), ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
