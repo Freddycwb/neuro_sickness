@@ -247,19 +247,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360762648835663740, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: openDoorCode.Array.data[0]
-      value: BlackDoorOpenPuzzlesOff
+      value: GreyDoorOpenPuzzlesOff
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.b
-      value: 0.13207549
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.g
-      value: 0.12818967
+      value: 0.4680046
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.r
-      value: 0.11650055
+      value: 0.40032038
       objectReference: {fileID: 0}
     - target: {fileID: 7382792301018858661, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_RootOrder
@@ -315,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008921321414025485, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Name
-      value: DoorBlack2
+      value: DoorGrey2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
@@ -1103,13 +1103,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162619275}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2499995, y: 13.25, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.453483, y: 38.229958, z: 4.348709}
   m_LocalScale: {x: 0.4335474, y: 0.3923555, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 514404907}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168410485
 GameObject:
@@ -2848,13 +2848,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453843115}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.5, y: 13.25, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.703484, y: 38.229958, z: 4.348709}
   m_LocalScale: {x: 0.43354738, y: 0.39235547, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 514404907}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &485241595
 GameObject:
@@ -3070,13 +3070,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500838616}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.75, y: 13.25, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.953484, y: 38.229958, z: 4.348709}
   m_LocalScale: {x: 0.4335474, y: 0.3923555, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 514404907}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &509555656
 PrefabInstance:
@@ -3159,6 +3159,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c44b3b44b21e4240a9844928c3d2d2a, type: 3}
+--- !u!1 &514404906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514404907}
+  m_Layer: 0
+  m_Name: Train
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514404907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514404906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.20348352, y: -24.979956, z: -4.348709}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 453843118}
+  - {fileID: 851970196}
+  - {fileID: 162619278}
+  - {fileID: 500838619}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &517876030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3176,7 +3211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: turnOnHack.Array.data[0]
-      value: BlackDoorOpenPuzzlesOff
+      value: GreyDoorOpenPuzzlesOff
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732627, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_Name
@@ -3989,11 +4024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToOpen
-      value: 1.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToClose
-      value: 1.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: openDoorCode.Array.size
@@ -4112,19 +4147,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360762648835663740, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: openDoorCode.Array.data[0]
-      value: BlackDoorOpenPuzzlesOff
+      value: GreyDoorOpenPuzzlesOff
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.b
-      value: 0.13207549
+      value: 0.5566038
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.g
-      value: 0.12818967
+      value: 0.52969253
       objectReference: {fileID: 0}
     - target: {fileID: 3236583203108703455, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Color.r
-      value: 0.11650055
+      value: 0.44895872
       objectReference: {fileID: 0}
     - target: {fileID: 7382792301018858661, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_RootOrder
@@ -4180,7 +4215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008921321414025485, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
       propertyPath: m_Name
-      value: DoorBlack
+      value: DoorGrey
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 502b379a9e1c6c54e82dbe2aa2259f0e, type: 3}
@@ -5879,13 +5914,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851970193}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 13.25, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.2965164, y: 38.229958, z: 4.348709}
   m_LocalScale: {x: 0.4335474, y: 0.3923555, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 514404907}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852516227
 GameObject:
@@ -7590,11 +7625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToOpen
-      value: 1.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToClose
-      value: 1.7
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: openDoorCode.Array.size
@@ -9068,11 +9103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToOpen
-      value: 1.7
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: timeToClose
-      value: 1.7
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: openDoorCode.Array.size
@@ -12363,7 +12398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5578809808885231498, guid: c0269c310d5ed3648882767742d3bfba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.4
+      value: 9.599998
       objectReference: {fileID: 0}
     - target: {fileID: 5578809808885231498, guid: c0269c310d5ed3648882767742d3bfba, type: 3}
       propertyPath: m_LocalPosition.y
