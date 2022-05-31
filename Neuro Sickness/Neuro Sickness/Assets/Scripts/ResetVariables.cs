@@ -15,6 +15,7 @@ public class ResetVariables : MonoBehaviour
 
     private void Start()
     {
+        movementChanger.Value = Vector3.zero;
         interactionCode.Value = "";
         canControl.Value = true;
         minigameRequest.Value = "";

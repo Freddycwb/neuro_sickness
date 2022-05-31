@@ -201,7 +201,7 @@ public class ConveyorBelt : MonoBehaviour
     public void Invert()
     {
         inverted = true;
-        anim.SetFloat("Direction", -1);
+        anim.SetFloat("Direction", -(speed * 0.01428f));
         if (timeToReverse > 0)
         {
             _currentTimeToReverse = timeToReverse;
@@ -211,7 +211,7 @@ public class ConveyorBelt : MonoBehaviour
     public void Reverse()
     {
         inverted = false;
-        anim.SetFloat("Direction", 1);
+        anim.SetFloat("Direction", (speed * 0.01428f));
         if (timeToInvert > 0)
         {
             _currentTimeToInvert = timeToInvert;
@@ -224,6 +224,14 @@ public class ConveyorBelt : MonoBehaviour
         if (timeToTurnOff > 0)
         {
             _currentTimeToTurnOff = timeToTurnOff;
+        }
+        if (inverted)
+        {
+            Invert();
+        }
+        else
+        {
+            Reverse();
         }
     }
 
@@ -238,6 +246,7 @@ public class ConveyorBelt : MonoBehaviour
         {
             _currentTimeToTurnOn = timeToTurnOn;
         }
+        anim.SetFloat("Direction", 0);
     }
 
     public void TurnConveyorDirection()
