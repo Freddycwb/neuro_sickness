@@ -29,6 +29,6 @@ public class ResetVariables : MonoBehaviour
 
     private void LateUpdate()
     {
-        movementChanger.Value = Vector3.zero;
+        //movementChanger.Value = Vector3.zero;
     }
 }
