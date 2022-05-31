@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public string openDoorCode, closeDoorCode, stopTimerCode;
     public bool isAreadyOpen, closeAfterPass;
+    public string[] openDoorCode, closeDoorCode, stopTimerCode;
     public float timeToOpen, timeToClose;
     public StringVariable interactionCode;
 
-    private float currentTimeToOpen, currentTimeToClose;
+    private float _currentTimeToOpen, _currentTimeToClose;
 
     private void Start()
     {
@@ -25,17 +25,26 @@ public class Door : MonoBehaviour
 
     public void Interacted()
     {
-        if (interactionCode.Value == openDoorCode)
+        for (int i = 0; i < openDoorCode.Length; i++)
         {
-            Open();
+            if (interactionCode.Value == openDoorCode[i])
+            {
+                Open();
+            }
         }
-        else if (interactionCode.Value == closeDoorCode)
+        for (int i = 0; i < closeDoorCode.Length; i++)
         {
-            Close();
-        } 
-        else if (interactionCode.Value == stopTimerCode)
+            if (interactionCode.Value == closeDoorCode[i])
+            {
+                Close();
+            }
+        }
+        for (int i = 0; i < stopTimerCode.Length; i++)
         {
-            StopTimers();
+            if (interactionCode.Value == stopTimerCode[i])
+            {
+                StopTimers();
+            }
         }
     }
 
@@ -46,22 +55,22 @@ public class Door : MonoBehaviour
 
     public void DoorTimer()
     {
-        if (currentTimeToOpen > 0 && timeToOpen > 0)
+        if (_currentTimeToOpen > 0 && timeToOpen > 0)
         {
-            currentTimeToOpen -= Time.deltaTime;
-            if (currentTimeToOpen <= 0)
+            _currentTimeToOpen -= Time.deltaTime;
+            if (_currentTimeToOpen <= 0)
             {
                 Open();
-                currentTimeToOpen = 0;
+                _currentTimeToOpen = 0;
             }
         }
-        if (currentTimeToClose > 0 && timeToClose > 0)
+        if (_currentTimeToClose > 0 && timeToClose > 0)
         {
-            currentTimeToClose -= Time.deltaTime;
-            if (currentTimeToClose <= 0)
+            _currentTimeToClose -= Time.deltaTime;
+            if (_currentTimeToClose <= 0)
             {
                 Close();
-                currentTimeToClose = 0;
+                _currentTimeToClose = 0;
             }
         }
     }
@@ -72,7 +81,7 @@ public class Door : MonoBehaviour
         transform.GetComponent<BoxCollider2D>().isTrigger = true;
         if (timeToClose > 0)
         {
-            currentTimeToClose = timeToClose;
+            _currentTimeToClose = timeToClose;
         }
     }
 
@@ -82,7 +91,7 @@ public class Door : MonoBehaviour
         transform.GetComponent<BoxCollider2D>().isTrigger = false;
         if (timeToOpen > 0)
         {
-            currentTimeToOpen = timeToOpen;
+            _currentTimeToOpen = timeToOpen;
         }
     }
 

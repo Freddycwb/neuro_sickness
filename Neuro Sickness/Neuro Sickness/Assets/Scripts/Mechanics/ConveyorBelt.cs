@@ -11,16 +11,19 @@ public class ConveyorBelt : MonoBehaviour
         leftRight,
         diagonalDown
     }
-    public string invertConveyorCode, reverseConveyorCode, turnOnConveyorCode, turnOffConveyorCode;
     public moveType direction;
     public float speed;
+    public string[] invertConveyorCode, reverseConveyorCode, turnOnConveyorCode, turnOffConveyorCode, turnConveyorDirectionCode, ChangeConveyorStateCode;
+    public float timeToInvert, timeToReverse, timeToTurnOn, timeToTurnOff;
+
     public bool inverted, on;
     public Vector3Variable movementChanger;
     public StringVariable interactionCode;
 
-    private List<Rigidbody2D> objOnConveyor = new List<Rigidbody2D>();
-    private bool playerOnArea;
-    private float currentSpeed;
+    private List<Rigidbody2D> _objOnConveyor = new List<Rigidbody2D>();
+    private bool _playerOnArea;
+    private float _currentSpeed;
+    private float _currentTimeToInvert, _currentTimeToReverse, _currentTimeToTurnOn, _currentTimeToTurnOff;
 
     private Animator anim;
 
@@ -28,25 +31,67 @@ public class ConveyorBelt : MonoBehaviour
     {
         GetComponent<BoxCollider2D>().size = GetComponent<SpriteRenderer>().size;
         anim = GetComponent<Animator>();
+        if (inverted)
+        {
+            Invert();
+        }
+        else
+        {
+            Reverse();
+        }
+        if (on)
+        {
+            TurnOn();
+        }
+        else
+        {
+            TurnOff();
+        }
     }
 
     public void Interacted()
     {
-        if (interactionCode.Value == invertConveyorCode)
+        for (int i = 0; i < invertConveyorCode.Length; i++)
         {
-            Invert();
+            if (interactionCode.Value == invertConveyorCode[i])
+            {
+                Invert();
+            }
         }
-        else if (interactionCode.Value == reverseConveyorCode)
+        for (int i = 0; i < reverseConveyorCode.Length; i++)
         {
-            Reverse();
+            if (interactionCode.Value == reverseConveyorCode[i])
+            {
+                Reverse();
+            }
         }
-        else if (interactionCode.Value == turnOnConveyorCode)
+        for (int i = 0; i < turnOnConveyorCode.Length; i++)
         {
-            TurnOn();
+            if (interactionCode.Value == turnOnConveyorCode[i])
+            {
+                TurnOn();
+            }
         }
-        else if (interactionCode.Value == turnOffConveyorCode)
+        for (int i = 0; i < turnOffConveyorCode.Length; i++)
         {
-            TurnOff();
+            if (interactionCode.Value == turnOffConveyorCode[i])
+            {
+                TurnOff();
+            }
+        }
+        for (int i = 0; i < turnConveyorDirectionCode.Length; i++)
+        {
+            if (interactionCode.Value == turnConveyorDirectionCode[i])
+            {
+                TurnConveyorDirection();
+            }
+        }
+        for (int i = 0; i < ChangeConveyorStateCode.Length; i++)
+        {
+            if (interactionCode.Value == ChangeConveyorStateCode[i])
+            {
+                ChangeConveyorState();
+            }
         }
     }
 
@@ -58,49 +103,54 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        ConveyorTimer();
+    }
+
     public void Movement()
     {
-        currentSpeed = inverted ? -speed : speed;
+        _currentSpeed = inverted ? -speed : speed;
         switch (direction) 
         {
             case moveType.downTop:
-                if (playerOnArea)
+                if (_playerOnArea)
                 {
-                    movementChanger.Value += Vector3.up * currentSpeed * Time.deltaTime;
+                    movementChanger.Value += Vector3.up * _currentSpeed * Time.deltaTime;
                 }
-                for (int i = 0; i < objOnConveyor.Count; i++)
+                for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    objOnConveyor[i].velocity = Vector3.up * currentSpeed * Time.deltaTime;
+                    _objOnConveyor[i].velocity = Vector3.up * _currentSpeed * Time.deltaTime;
                 }
                 break;
             case moveType.diagonalUp:
-                if (playerOnArea)
+                if (_playerOnArea)
                 {
-                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * currentSpeed * Time.deltaTime);
+                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime);
                 }
-                for (int i = 0; i < objOnConveyor.Count; i++)
+                for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    objOnConveyor[i].velocity = new Vector3(Mathf.Sqrt(2) * currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * currentSpeed * Time.deltaTime);
+                    _objOnConveyor[i].velocity = new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime);
                 }
                 break;
             case moveType.leftRight:
-                if (playerOnArea)
+                if (_playerOnArea)
                 {
-                    movementChanger.Value += Vector3.right * currentSpeed * Time.deltaTime;
+                    movementChanger.Value += Vector3.right * _currentSpeed * Time.deltaTime;
                 }
-                for (int i = 0; i < objOnConveyor.Count; i++)
+                for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    objOnConveyor[i].velocity = Vector3.right * currentSpeed * Time.deltaTime;
+                    _objOnConveyor[i].velocity = Vector3.right * _currentSpeed * Time.deltaTime;
                 }
                 break;
             case moveType.diagonalDown:
-                if (playerOnArea)
+                if (_playerOnArea)
                 {
-                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * currentSpeed * -Time.deltaTime);
+                    movementChanger.Value += new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * -Time.deltaTime);
                 }
-                for (int i = 0; i < objOnConveyor.Count; i++)
+                for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    objOnConveyor[i].velocity = new Vector3(Mathf.Sqrt(2) * currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * currentSpeed * -Time.deltaTime);
+                    _objOnConveyor[i].velocity = new Vector3(Mathf.Sqrt(2) * _currentSpeed * Time.deltaTime, Mathf.Sqrt(2) * _currentSpeed * -Time.deltaTime);
                 }
                 break;
             default:
@@ -108,37 +158,117 @@ public class ConveyorBelt : MonoBehaviour
         }
     }
 
-    public void TurnOn()
+    public void ConveyorTimer()
     {
-        on = true;
-    }
-
-    public void TurnOff()
-    {
-        for (int i = 0; i < objOnConveyor.Count; i++)
+        if (_currentTimeToInvert > 0 && timeToInvert > 0)
         {
-            objOnConveyor[i].velocity = Vector3.zero;
+            _currentTimeToInvert -= Time.deltaTime;
+            if (_currentTimeToInvert <= 0)
+            {
+                Invert();
+                _currentTimeToInvert = 0;
+            }
         }
-        on = false;
+        if (_currentTimeToReverse > 0 && timeToReverse > 0)
+        {
+            _currentTimeToReverse -= Time.deltaTime;
+            if (_currentTimeToReverse <= 0)
+            {
+                Reverse();
+                _currentTimeToReverse = 0;
+            }
+        }
+        if (_currentTimeToTurnOn > 0 && timeToTurnOn > 0)
+        {
+            _currentTimeToTurnOn -= Time.deltaTime;
+            if (_currentTimeToTurnOn <= 0)
+            {
+                TurnOn();
+                _currentTimeToTurnOn = 0;
+            }
+        }
+        if (_currentTimeToTurnOff > 0 && timeToTurnOff > 0)
+        {
+            _currentTimeToTurnOff -= Time.deltaTime;
+            if (_currentTimeToTurnOff <= 0)
+            {
+                TurnOff();
+                _currentTimeToTurnOff = 0;
+            }
+        }
     }
 
     public void Invert()
     {
         inverted = true;
         anim.SetFloat("Direction", -1);
+        if (timeToReverse > 0)
+        {
+            _currentTimeToReverse = timeToReverse;
+        }
     }
 
     public void Reverse()
     {
         inverted = false;
         anim.SetFloat("Direction", 1);
+        if (timeToInvert > 0)
+        {
+            _currentTimeToInvert = timeToInvert;
+        }
+    }
+
+    public void TurnOn()
+    {
+        on = true;
+        if (timeToTurnOff > 0)
+        {
+            _currentTimeToTurnOff = timeToTurnOff;
+        }
+    }
+
+    public void TurnOff()
+    {
+        for (int i = 0; i < _objOnConveyor.Count; i++)
+        {
+            _objOnConveyor[i].velocity = Vector3.zero;
+        }
+        on = false;
+        if (timeToTurnOn > 0)
+        {
+            _currentTimeToTurnOn = timeToTurnOn;
+        }
+    }
+
+    public void TurnConveyorDirection()
+    {
+        if (inverted)
+        {
+            Reverse();
+        }
+        else
+        {
+            Invert();
+        }
+    }
+
+    public void ChangeConveyorState()
+    {
+        if (on)
+        {
+            TurnOff();
+        }
+        else
+        {
+            TurnOn();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerOnArea = true;
+            _playerOnArea = true;
         }
         else
         {
@@ -147,7 +277,7 @@ public class ConveyorBelt : MonoBehaviour
         if (collision.CompareTag("Collectable"))
         {
             Debug.Log("colecionavel");
-            objOnConveyor.Add(collision.GetComponent<Rigidbody2D>());
+            _objOnConveyor.Add(collision.GetComponent<Rigidbody2D>());
         }
     }
 
@@ -155,12 +285,12 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerOnArea = false;
+            _playerOnArea = false;
         }
         if (collision.CompareTag("Collectable"))
         {
             collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-            objOnConveyor.Remove(collision.GetComponent<Rigidbody2D>());
+            _objOnConveyor.Remove(collision.GetComponent<Rigidbody2D>());
         }
     }
 }

@@ -148,12 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4138a786943a8d443bb39217b904cf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertConveyorCode: 
-  reverseConveyorCode: 
-  turnOnConveyorCode: 
-  turnOffConveyorCode: 
   direction: 0
   speed: 30
+  invertConveyorCode: []
+  reverseConveyorCode: []
+  turnOnConveyorCode: []
+  turnOffConveyorCode: []
+  turnConveyorDirectionCode: []
+  ChangeConveyorStateCode: []
+  timeToInvert: 0
+  timeToReverse: 0
+  timeToTurnOn: 0
+  timeToTurnOff: 0
   inverted: 0
   on: 1
   movementChanger: {fileID: 11400000, guid: cf29e50bd1468a44e8eb42b9ead78713, type: 2}
