@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         Vector2 heading = transform.position - (Vector3)knockPos;
         float distance = heading.magnitude;
         Vector2 normalDirection = heading / distance;
-        _rb.AddForce(normalDirection * ((knockForce * 500)), ForceMode2D.Impulse);
+        _rb.AddForce(normalDirection * ((knockForce * 7)), ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

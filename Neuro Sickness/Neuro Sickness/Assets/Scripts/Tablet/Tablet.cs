@@ -24,7 +24,7 @@ public class Tablet : MonoBehaviour
     {
         float y = transform.position.y;
         if (show) {
-            while (y < 0)
+            while (y < transform.parent.position.y)
             {
                 transform.position = new Vector3(transform.position.x, y, transform.position.z);
                 y += Time.deltaTime * speed;
@@ -34,7 +34,7 @@ public class Tablet : MonoBehaviour
         }
         else
         {
-            while (y > -12)
+            while (y > transform.parent.position.y - 12)
             {
                 transform.position = new Vector3(transform.position.x, y, transform.position.z);
                 y -= Time.deltaTime * speed;
