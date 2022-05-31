@@ -120,7 +120,7 @@ public class ConveyorBelt : MonoBehaviour
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    _objOnConveyor[i].velocity = Vector3.up * _currentSpeed * Time.deltaTime;
+                    _objOnConveyor[i].velocity = new Vector2(_objOnConveyor[i].velocity.x, _currentSpeed * Time.deltaTime);
                 }
                 break;
             case moveType.diagonalUp:
@@ -140,7 +140,7 @@ public class ConveyorBelt : MonoBehaviour
                 }
                 for (int i = 0; i < _objOnConveyor.Count; i++)
                 {
-                    _objOnConveyor[i].velocity = Vector3.right * _currentSpeed * Time.deltaTime;
+                    _objOnConveyor[i].velocity = new Vector2(_currentSpeed * Time.deltaTime, _objOnConveyor[i].velocity.y);
                 }
                 break;
             case moveType.diagonalDown:
@@ -279,13 +279,8 @@ public class ConveyorBelt : MonoBehaviour
         {
             _playerOnArea = true;
         }
-        else
-        {
-            Debug.Log("não player");
-        }
         if (collision.CompareTag("Collectable"))
         {
-            Debug.Log("colecionavel");
             _objOnConveyor.Add(collision.GetComponent<Rigidbody2D>());
         }
     }

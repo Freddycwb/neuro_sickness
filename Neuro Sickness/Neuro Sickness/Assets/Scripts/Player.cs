@@ -85,21 +85,28 @@ public class Player : MonoBehaviour
 
     private void PlayAnimation()
     {
-        if (_rb.velocity.x < 0)
+        if (_currentStunTime <= 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (_rb.velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (_rb.velocity.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            if (new Vector2(_velocityX, _velocityY).magnitude > 1)
+            {
+                ChangeAnimatorState("PlayerWalk");
+            }
+            if (new Vector2(_velocityX, _velocityY).magnitude == 0)
+            {
+                ChangeAnimatorState("PlayerIdle");
+            }
         }
-        if (_rb.velocity.x > 0)
+        if (_currentStunTime > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (_rb.velocity.magnitude > 1)
-        {
-            ChangeAnimatorState("PlayerWalk");
-        }
-        if (_rb.velocity.magnitude == 0)
-        {
-            ChangeAnimatorState("PlayerIdle");
+            ChangeAnimatorState("PlayerHurt");
         }
     }
 
