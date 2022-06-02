@@ -7,7 +7,7 @@ public class Hackable : MonoBehaviour
     public GameEvent hack;
     public bool isSwitch;
     public string[] turnOnHack, turnOffHack;
-    public string minigame;
+    public minigamesType minigame;
     public int difficulty;
     public StringVariable minigameRequested;
     public FloatVariable minigameDifficulty;
@@ -15,13 +15,19 @@ public class Hackable : MonoBehaviour
     public GameEvent interact;
     public BoolVariable canControl;
 
+    public enum minigamesType
+    {
+        Spam,
+        Osu
+    }
+
     private bool beingHacked, on;
 
     private void OnMouseDown()
     {
         if (canControl.Value)
         {
-            minigameRequested.Value = minigame;
+            minigameRequested.Value = minigame.ToString();
             minigameDifficulty.Value = difficulty;
             beingHacked = true;
             hack.Raise();

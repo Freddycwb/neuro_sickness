@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Projetos/GamesUnity/Neuro Sickness/Builds/Web;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Projetos/Puc/NeuroSickness/neuro_sickness/Neuro Sickness/Neuro Sickness/Builds/NewWeb;C:/Projetos/Puc/NeuroSickness/neuro_sickness/Neuro Sickness/Neuro Sickness/Builds/Web;C:/Projetos/Puc/NeuroSickness/neuro_sickness/Neuro Sickness/Neuro Sickness/Builds/WebCurrent;C:/Projetos/GamesUnity/Neuro Sickness/Builds/Web;;;;;;\"}"
             }
         ]
     }

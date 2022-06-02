@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         else
         {
             _currentStunTime -= Time.deltaTime;
+            _rb.velocity = new Vector2(_rb.velocity.x / 1.1f, _rb.velocity.y / 1.1f);
             if (_currentStunTime <= 0)
             {
                 _currentStunTime = 0;
@@ -165,12 +166,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Damage")
         {
             TakeDamage();
-            Knockback(collision.transform.position, 0.5f);
+            Knockback(collision.transform.position, 1);
         }
     }
 

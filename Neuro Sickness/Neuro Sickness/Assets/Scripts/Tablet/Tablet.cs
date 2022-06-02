@@ -49,5 +49,9 @@ public class Tablet : MonoBehaviour
         {
             minigames[0].SetActive(true);
         }
+        if (minigameRequested.Value == "Osu")
+        {
+            minigames[1].SetActive(true);
+        }
     }
 }
