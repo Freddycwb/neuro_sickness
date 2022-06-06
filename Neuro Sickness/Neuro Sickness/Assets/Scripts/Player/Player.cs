@@ -8,10 +8,15 @@ public class Player : MonoBehaviour
     public float stunTime;
     public GameObjectVariable player;
     public GameObjectVariable collectable;
-    public GameEvent actionButton, DropButton;
-    public GameEvent hackCancel;
     public BoolVariable canControl;
     public Vector3Variable movementChanger;
+    public BoolVariable isRunning;
+    public BoolVariable holdingRun;
+
+    public GameEvent actionButton;
+    public GameEvent dropButton;
+    public GameEvent hackCancel;
+    public GameEvent takeDamage;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -56,15 +61,16 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
+        holdingRun.Value = Input.GetKey(KeyCode.LeftShift) && (_velocityX != 0 || _velocityY != 0);
         if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
         {
-            _velocityX = (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed;
-            _velocityY = (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed;
+            _velocityX = isRunning.Value ? (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed * 1.5f : (Input.GetAxis("Horizontal") / Mathf.Sqrt(2)) * speed;
+            _velocityY = isRunning.Value ? (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed * 1.5f : (Input.GetAxis("Vertical") / Mathf.Sqrt(2)) * speed;
         }
         else
         {
-            _velocityX = Input.GetAxis("Horizontal") * speed;
-            _velocityY = Input.GetAxis("Vertical") * speed;
+            _velocityX = isRunning.Value ? Input.GetAxis("Horizontal") * speed * 2 : Input.GetAxis("Horizontal") * speed;
+            _velocityY = isRunning.Value ? Input.GetAxis("Vertical") * speed * 2 : Input.GetAxis("Vertical") * speed;
         }
     }
 
@@ -80,7 +86,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            DropButton.Raise();
+            dropButton.Raise();
         }
     }
 
@@ -104,6 +110,14 @@ public class Player : MonoBehaviour
             {
                 ChangeAnimatorState("PlayerIdle");
             }
+            if (isRunning.Value)
+            {
+                _animator.speed = 1.5f;
+            }
+            else
+            {
+                _animator.speed = 1;
+            }
         }
         if (_currentStunTime > 0)
         {
@@ -126,7 +140,10 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-
+        if (_currentStunTime == 0)
+        {
+            takeDamage.Raise();
+        }
     }
 
     public void Knockback(Vector2 knockPos, float knockForce)

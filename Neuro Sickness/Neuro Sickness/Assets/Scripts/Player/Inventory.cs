@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour
                     itemSlot[i].sprite = collectable.Value.GetComponent<SpriteRenderer>().sprite;
                     itemSlot[i].material = collectable.Value.GetComponent<SpriteRenderer>().material;
                     itemSlot[i].preserveAspect = true;
-                    itemSlot[i].transform.localScale = new Vector3(3, 3, 1);
+                    itemSlot[i].transform.localScale = new Vector3(2, 2, 1);
                     collectable.Value.SetActive(false);
                     collectable.Value = null;
                     i = itemSlot.Length + 1;
@@ -82,19 +82,19 @@ public class Inventory : MonoBehaviour
             case 0:
                 if(slots.Value[ItemInHand.Value] != null)
                 {
-                    itemSlot[0].transform.localScale = new Vector3(5, 5, 1);
+                    itemSlot[0].transform.localScale = new Vector3(2.5f, 2.5f, 1);
                 }
                 break;
             case 1:
                 if (slots.Value[ItemInHand.Value] != null)
                 {
-                    itemSlot[1].transform.localScale = new Vector3(5, 5, 1);
+                    itemSlot[1].transform.localScale = new Vector3(2.5f, 2.5f, 1);
                 }
                 break;
             case 2:
                 if (slots.Value[ItemInHand.Value] != null)
                 {
-                    itemSlot[2].transform.localScale = new Vector3(5, 5, 1);
+                    itemSlot[2].transform.localScale = new Vector3(2.5f, 2.5f, 1);
                 }
                 break;
             default:
@@ -106,7 +106,7 @@ public class Inventory : MonoBehaviour
     {
         if (slots.Value[ItemInHand.Value] != null)
         {
-            itemSlot[ItemInHand.Value].transform.localScale = new Vector3(3, 3, 1);
+            itemSlot[ItemInHand.Value].transform.localScale = new Vector3(2, 2, 1);
         }
         else
         {

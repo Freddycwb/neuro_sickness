@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class ResetVariables : MonoBehaviour
 {
-    public Vector3Variable movementChanger;
-    public StringVariable interactionCode;
-    public BoolVariable canControl;
-    public StringVariable minigameRequest;
-    public FloatVariable minigameDifficulty;
     public IntVariable itemInHand;
+    public IntVariable health;
+    public IntVariable maxHealth;
+    public IntVariable maxStamina;
+
+    public FloatVariable minigameDifficulty;
+    public FloatVariable stamina;
+
+    public BoolVariable canControl;
+
+    public StringVariable minigameRequest;
+    public StringVariable interactionCode;
+
+    public Vector3Variable movementChanger;
+
     public GameObjectArrayVariable inventory;
     public GameObjectVariable collectable;
 
     private void Start()
     {
-        movementChanger.Value = Vector3.zero;
-        interactionCode.Value = "";
-        canControl.Value = true;
-        minigameRequest.Value = "";
-        minigameDifficulty.Value = 1;
         itemInHand.Value = 0;
+        health.Value = maxHealth.Value;
+
+        minigameDifficulty.Value = 1;
+        stamina.Value = maxStamina.Value;
+
+        canControl.Value = true;
+
+        minigameRequest.Value = "";
+        interactionCode.Value = "";
+
+        movementChanger.Value = Vector3.zero;
+
         for (int i = 0; i < inventory.Value.Length; i++)
         {
             inventory.Value[i] = null;
