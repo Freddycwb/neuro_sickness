@@ -9,10 +9,17 @@ public class Door : MonoBehaviour
     public float timeToOpen, timeToClose;
     public StringVariable interactionCode;
 
+    private Animator _animatorFrontDoor, _animatorSideDoor;
     private float _currentTimeToOpen, _currentTimeToClose;
 
     private void Start()
     {
+        if (tag != "Damage")
+        {
+            transform.GetComponent<SpriteRenderer>().enabled = false;
+            _animatorFrontDoor = transform.parent.GetChild(1).GetChild(0).GetComponent<Animator>();
+            _animatorSideDoor = transform.parent.GetChild(1).GetChild(1).GetComponent<Animator>();
+        }
         if (isAreadyOpen)
         {
             Open();
@@ -77,7 +84,11 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
-        transform.GetComponent<SpriteRenderer>().enabled = false;
+        if (tag != "Damage")
+        {
+            _animatorFrontDoor.Play("DoorFrontOpen");
+            _animatorSideDoor.Play("DoorSideOpen");
+        }
         transform.GetComponent<BoxCollider2D>().isTrigger = true;
         if (timeToClose > 0)
         {
@@ -87,7 +98,11 @@ public class Door : MonoBehaviour
 
     public void Close()
     {
-        transform.GetComponent<SpriteRenderer>().enabled = true;
+        if (tag != "Damage")
+        {
+            _animatorFrontDoor.Play("DoorFrontClose");
+            _animatorSideDoor.Play("DoorSideClose");
+        }
         transform.GetComponent<BoxCollider2D>().isTrigger = false;
         if (timeToOpen > 0)
         {
