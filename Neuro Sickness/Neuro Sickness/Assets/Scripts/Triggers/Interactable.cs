@@ -11,8 +11,18 @@ public class Interactable : MonoBehaviour
     public GameObjectArrayVariable inventory;
     public IntVariable itemInHand;
     public StringVariable interactionCode;
+    public SoundVariable btnPressedSound;
 
     private bool playerInArea, on;
+    private Animator _animatorFront, _animatorSide;
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponentInChildren<AudioSource>();
+        _animatorFront = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+        _animatorSide = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,6 +59,13 @@ public class Interactable : MonoBehaviour
             {
                 StartCoroutine(CallTurnOnInteractions());
             }
+            if (ItemRequested == "")
+            {
+                _audio.clip = btnPressedSound.Value;
+                _audio.Play();
+            }
+            _animatorFront.Play("Click", -1, 0f);
+            _animatorSide.Play("ClickSide", -1, 0f);
         }
     }
 

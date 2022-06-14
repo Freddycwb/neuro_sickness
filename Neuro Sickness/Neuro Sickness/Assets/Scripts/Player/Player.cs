@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Vector3Variable movementChanger;
     public BoolVariable isRunning;
     public BoolVariable holdingRun;
+    public SoundVariable stepSound, damageSound;
 
     public GameEvent actionButton;
     public GameEvent dropButton;
@@ -23,11 +24,13 @@ public class Player : MonoBehaviour
     private float _velocityX, _velocityY;
     private float _currentStunTime;
     private string _currentState;
+    private AudioSource _audio;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audio = GetComponent<AudioSource>();
         player.Value = gameObject;
     }
 
@@ -142,6 +145,7 @@ public class Player : MonoBehaviour
     {
         if (_currentStunTime == 0)
         {
+            _audio.clip = damageSound.Value;
             takeDamage.Raise();
         }
     }
@@ -153,10 +157,14 @@ public class Player : MonoBehaviour
         _rb.velocity = Vector3.zero;
         _velocityX = 0;
         _velocityY = 0;
-        Vector2 heading = transform.position - (Vector3)knockPos;
-        float distance = heading.magnitude;
-        Vector2 normalDirection = heading / distance;
+        Vector2 heading = (transform.position + new Vector3(0, 0.2f)) - (Vector3)knockPos;
+        Vector2 normalDirection = heading.normalized;
         _rb.AddForce(normalDirection * ((knockForce * 7)), ForceMode2D.Impulse);
+    }
+
+    public void Death()
+    {
+        canControl.Value = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -188,7 +196,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Damage")
         {
             TakeDamage();
-            Knockback(collision.transform.position, 1);
+            Knockback(collision.GetContact(0).point, 1);
         }
     }
 
@@ -197,5 +205,11 @@ public class Player : MonoBehaviour
         if (_currentState == newState) return;
         _animator.Play(newState);
         _currentState = newState;
+    }
+
+    public void StepSound()
+    {
+        _audio.clip = stepSound.Value;
+        _audio.Play();
     }
 }

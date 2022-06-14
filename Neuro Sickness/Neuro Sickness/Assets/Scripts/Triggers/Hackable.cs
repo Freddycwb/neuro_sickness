@@ -15,6 +15,13 @@ public class Hackable : MonoBehaviour
     public GameEvent interact;
     public BoolVariable canControl;
 
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
+
     public enum minigamesType
     {
         Spam,
