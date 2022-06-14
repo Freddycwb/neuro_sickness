@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public IntVariable health;
     public Image[] sprites;
 
+    public GameEvent death;
+
     public void AddHealth()
     {
         health.Value += 1;
@@ -17,6 +19,10 @@ public class Health : MonoBehaviour
     public void SubtractHealth()
     {
         health.Value -= 1;
+        if (health.Value <= 0)
+        {
+            death.Raise();
+        }
         UpdateUI();
     }
 

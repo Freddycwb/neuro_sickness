@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: {fileID: 11400000, guid: 861222a158b6b99448dbbcc043eceaee, type: 2}
   osuElement: {fileID: 1664745477055659958, guid: 0599ed55acd15fb42b61809d492c013e, type: 3}
+  currentNumber: 0
   minigameIsOver: 0
   hackCompleted: {fileID: 11400000, guid: 30469d657b23a8242ba328f9344060b5, type: 2}
 --- !u!114 &1639043463
@@ -1170,14 +1171,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66725bccc94c6d46b3560c8ac7d6d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementChanger: {fileID: 11400000, guid: cf29e50bd1468a44e8eb42b9ead78713, type: 2}
-  interactionCode: {fileID: 11400000, guid: a6dd55253de3f1941a1f6fd7b5589c99, type: 2}
+  itemInHand: {fileID: 11400000, guid: 8280dd3770cd14d4ba08ec83fb40ce2f, type: 2}
+  health: {fileID: 11400000, guid: 850bce4f745597648ad00ef8ca0229af, type: 2}
+  maxHealth: {fileID: 11400000, guid: d5831313f07f7af42be395bf58299b38, type: 2}
+  maxStamina: {fileID: 11400000, guid: d28d73edec2d7524f9f02e3e75835fdf, type: 2}
+  minigameDifficulty: {fileID: 11400000, guid: 861222a158b6b99448dbbcc043eceaee, type: 2}
+  stamina: {fileID: 11400000, guid: 28fab22a9a54d754dab4c351008d0307, type: 2}
   canControl: {fileID: 11400000, guid: 9eafe5d8db7738f4eaed4114874c3bd2, type: 2}
   minigameRequest: {fileID: 11400000, guid: 95414ec9ff120ba4aac5cc4e52b860ec, type: 2}
-  minigameDifficulty: {fileID: 11400000, guid: 861222a158b6b99448dbbcc043eceaee, type: 2}
-  itemInHand: {fileID: 11400000, guid: 8280dd3770cd14d4ba08ec83fb40ce2f, type: 2}
+  interactionCode: {fileID: 11400000, guid: a6dd55253de3f1941a1f6fd7b5589c99, type: 2}
+  movementChanger: {fileID: 11400000, guid: cf29e50bd1468a44e8eb42b9ead78713, type: 2}
+  respawnPosition: {fileID: 11400000, guid: 1765089b123402d458da7449da7d2422, type: 2}
   inventory: {fileID: 11400000, guid: 65a91d182b50faa4386f9ac63f07daf2, type: 2}
   collectable: {fileID: 11400000, guid: fd2718b0dc9f2234b85b06100512af30, type: 2}
+  player: {fileID: 11400000, guid: 2f8430a8fb8acb84e86b0cd3f4f5e471, type: 2}
 --- !u!1 &7458967663002387849
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,15 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public bool isAreadyOpen, closeAfterPass;
-    public string[] openDoorCode, closeDoorCode, stopTimerCode;
-    public float timeToOpen, timeToClose;
+    private bool isOpen;
+    public string[] openDoorCode, closeDoorCode, stopTimerCode, toggleDoorStateCode;
+    public float timeToOpen, timeToClose, timeToStartCouter;
     public StringVariable interactionCode;
+    public SoundVariable openSound, closeSound, laserSound;
 
     private Animator _animatorFrontDoor, _animatorSideDoor;
     private float _currentTimeToOpen, _currentTimeToClose;
+    private AudioSource _audio;
 
     private void Start()
     {
@@ -20,6 +23,7 @@ public class Door : MonoBehaviour
             _animatorFrontDoor = transform.parent.GetChild(1).GetChild(0).GetComponent<Animator>();
             _animatorSideDoor = transform.parent.GetChild(1).GetChild(1).GetComponent<Animator>();
         }
+        _audio = transform.GetChild(0).GetComponent<AudioSource>();
         if (isAreadyOpen)
         {
             Open();
@@ -28,6 +32,7 @@ public class Door : MonoBehaviour
         {
             Close();
         }
+        isOpen = isAreadyOpen;
     }
 
     public void Interacted()
@@ -53,6 +58,13 @@ public class Door : MonoBehaviour
                 StopTimers();
             }
         }
+        for (int i = 0; i < toggleDoorStateCode.Length; i++)
+        {
+            if (interactionCode.Value == toggleDoorStateCode[i])
+            {
+                Toggle();
+            }
+        }
     }
 
     private void Update()
@@ -62,22 +74,33 @@ public class Door : MonoBehaviour
 
     public void DoorTimer()
     {
-        if (_currentTimeToOpen > 0 && timeToOpen > 0)
+        if (timeToStartCouter == 0)
         {
-            _currentTimeToOpen -= Time.deltaTime;
-            if (_currentTimeToOpen <= 0)
+            if (_currentTimeToOpen > 0 && timeToOpen > 0)
             {
-                Open();
-                _currentTimeToOpen = 0;
+                _currentTimeToOpen -= Time.deltaTime;
+                if (_currentTimeToOpen <= 0)
+                {
+                    Open();
+                    _currentTimeToOpen = 0;
+                }
+            }
+            if (_currentTimeToClose > 0 && timeToClose > 0)
+            {
+                _currentTimeToClose -= Time.deltaTime;
+                if (_currentTimeToClose <= 0)
+                {
+                    Close();
+                    _currentTimeToClose = 0;
+                }
             }
         }
-        if (_currentTimeToClose > 0 && timeToClose > 0)
+        else
         {
-            _currentTimeToClose -= Time.deltaTime;
-            if (_currentTimeToClose <= 0)
+            timeToStartCouter -= Time.deltaTime;
+            if (timeToStartCouter <= 0)
             {
-                Close();
-                _currentTimeToClose = 0;
+                timeToStartCouter = 0;
             }
         }
     }
@@ -88,12 +111,20 @@ public class Door : MonoBehaviour
         {
             _animatorFrontDoor.Play("DoorFrontOpen");
             _animatorSideDoor.Play("DoorSideOpen");
+            _audio.clip = openSound.Value;
+            _audio.Play();
+        }
+        else
+        {
+            transform.GetComponent<SpriteRenderer>().enabled = false;
+            _audio.Stop();
         }
         transform.GetComponent<BoxCollider2D>().isTrigger = true;
         if (timeToClose > 0)
         {
             _currentTimeToClose = timeToClose;
         }
+        isOpen = true;
     }
 
     public void Close()
@@ -102,11 +133,32 @@ public class Door : MonoBehaviour
         {
             _animatorFrontDoor.Play("DoorFrontClose");
             _animatorSideDoor.Play("DoorSideClose");
+            _audio.clip = closeSound.Value;
+            _audio.Play();
+        }
+        else
+        {
+            transform.GetComponent<SpriteRenderer>().enabled = true;
+            _audio.clip = laserSound.Value;
+            _audio.Play();
         }
         transform.GetComponent<BoxCollider2D>().isTrigger = false;
         if (timeToOpen > 0)
         {
             _currentTimeToOpen = timeToOpen;
+        }
+        isOpen = false;
+    }
+
+    public void Toggle()
+    {
+        if (isOpen)
+        {
+            Close();
+        }
+        else
+        {
+            Open();
         }
     }
 

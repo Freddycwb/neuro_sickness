@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5056073692670092548}
   - component: {fileID: 5056073692670092550}
   - component: {fileID: 1522916236}
+  - component: {fileID: 27890916212502532}
   m_Layer: 0
   m_Name: Item
   m_TagString: Collectable
@@ -99,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.85}
+  m_Offset: {x: 0, y: -0.818}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.4
 --- !u!50 &1522916236
 Rigidbody2D:
   serializedVersion: 4
@@ -123,3 +124,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &27890916212502532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056073692670092549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ee9baf3c328804e9bddd2a572ba84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

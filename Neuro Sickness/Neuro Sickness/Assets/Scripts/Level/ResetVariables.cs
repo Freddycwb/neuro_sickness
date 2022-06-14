@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetVariables : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class ResetVariables : MonoBehaviour
     public StringVariable interactionCode;
 
     public Vector3Variable movementChanger;
+    public Vector3Variable respawnPosition;
 
     public GameObjectArrayVariable inventory;
     public GameObjectVariable collectable;
+    public GameObjectVariable player;
 
     private void Start()
     {
@@ -42,5 +45,10 @@ public class ResetVariables : MonoBehaviour
             inventory.Value[i] = null;
         }
         collectable.Value = null;
+    }
+
+    public void Respawn()
+    {
+        SceneManager.LoadScene("Station2");
     }
 }
