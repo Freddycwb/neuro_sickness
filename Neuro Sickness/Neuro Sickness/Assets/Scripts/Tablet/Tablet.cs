@@ -7,6 +7,14 @@ public class Tablet : MonoBehaviour
     public float speed = 1;
     public StringVariable minigameRequested;
     public GameObject[] minigames;
+    public SoundVariable minigameStartSound;
+
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
 
     public void CallTablet()
     {
@@ -45,6 +53,8 @@ public class Tablet : MonoBehaviour
 
     public void CallMinigame()
     {
+        _audio.clip = minigameStartSound.Value;
+        _audio.Play();
         if (minigameRequested.Value == "Spam")
         {
             minigames[0].SetActive(true);

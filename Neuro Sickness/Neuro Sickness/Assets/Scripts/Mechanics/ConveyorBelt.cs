@@ -19,6 +19,8 @@ public class ConveyorBelt : MonoBehaviour
     public bool inverted, on;
     public Vector3Variable movementChanger;
     public StringVariable interactionCode;
+    public AudioSource _audio;
+    public SoundVariable conveyorSound;
 
     private List<Rigidbody2D> _objOnConveyor = new List<Rigidbody2D>();
     private bool _playerOnArea;
@@ -30,6 +32,7 @@ public class ConveyorBelt : MonoBehaviour
     private void Start()
     {
         GetComponent<BoxCollider2D>().size = GetComponent<SpriteRenderer>().size;
+        _audio.GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         if (inverted)
         {
@@ -220,6 +223,8 @@ public class ConveyorBelt : MonoBehaviour
 
     public void TurnOn()
     {
+        _audio.clip = conveyorSound.Value;
+        _audio.Play();
         on = true;
         if (timeToTurnOff > 0)
         {
@@ -237,6 +242,7 @@ public class ConveyorBelt : MonoBehaviour
 
     public void TurnOff()
     {
+        _audio.Stop();
         for (int i = 0; i < _objOnConveyor.Count; i++)
         {
             _objOnConveyor[i].velocity = Vector3.zero;

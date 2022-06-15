@@ -14,6 +14,7 @@ public class Hackable : MonoBehaviour
     public StringVariable interactionCode;
     public GameEvent interact;
     public BoolVariable canControl;
+    public SoundVariable HackStartSound, HackSuccessSound;
 
     private AudioSource _audio;
 
@@ -37,6 +38,8 @@ public class Hackable : MonoBehaviour
             minigameRequested.Value = minigame.ToString();
             minigameDifficulty.Value = difficulty;
             beingHacked = true;
+            _audio.clip = HackStartSound.Value;
+            _audio.Play();
             hack.Raise();
         }
     }
@@ -63,6 +66,8 @@ public class Hackable : MonoBehaviour
                 StartCoroutine(CallTurnOnInteractions());
             }
             interact.Raise();
+            _audio.clip = HackSuccessSound.Value;
+            _audio.Play();
             beingHacked = false;
         }
     }

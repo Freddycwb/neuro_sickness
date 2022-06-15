@@ -19,6 +19,14 @@ public class Inventory : MonoBehaviour
     public GameEvent inventoryFull;
     public GameEvent tooFar;
     public GameEvent dangerArea;
+    public SoundVariable collectSound, dropSound;
+   
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -36,6 +44,8 @@ public class Inventory : MonoBehaviour
             {
                 if (slots.Value[i] == null)
                 {
+                    _audio.clip = collectSound.Value;
+                    _audio.Play();
                     pickUpItem.Raise();
                     slots.Value[i] = collectable.Value;
                     itemSlot[i].sprite = collectable.Value.GetComponent<SpriteRenderer>().sprite;
@@ -56,6 +66,8 @@ public class Inventory : MonoBehaviour
 
     public void Drop()
     {
+        _audio.clip = dropSound.Value;
+        _audio.Play();
         itemSlot[ItemInHand.Value].sprite = slotSprite;
         itemSlot[ItemInHand.Value].transform.localScale = new Vector3(1, 1, 1);
         slots.Value[ItemInHand.Value].SetActive(true);
