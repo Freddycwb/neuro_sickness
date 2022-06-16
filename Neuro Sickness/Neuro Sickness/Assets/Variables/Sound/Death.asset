@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Death
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 0}
+  Value: {fileID: 8300000, guid: 394efab95ee4dfe489690d7a61d8e51d, type: 3}
   PersistBetweenScenes: 0

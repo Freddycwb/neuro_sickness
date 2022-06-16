@@ -25,6 +25,10 @@ public class ResetVariables : MonoBehaviour
     public GameObjectVariable collectable;
     public GameObjectVariable player;
 
+    public SoundVariable music;
+
+    private AudioSource _audio;
+
     private void Start()
     {
         itemInHand.Value = 0;
@@ -45,6 +49,9 @@ public class ResetVariables : MonoBehaviour
             inventory.Value[i] = null;
         }
         collectable.Value = null;
+        _audio = GetComponent<AudioSource>();
+        _audio.clip = music.Value;
+        _audio.Play();
     }
 
     public void Respawn()

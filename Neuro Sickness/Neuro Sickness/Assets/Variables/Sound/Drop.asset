@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Drop
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 73cc63e5477c2214384cc332a945f365, type: 3}
+  Value: {fileID: 8300000, guid: 893a80241fd40bd4cacec75ec7fb3fb7, type: 3}
   PersistBetweenScenes: 0

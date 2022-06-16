@@ -222,7 +222,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 65a91d182b50faa4386f9ac63f07daf2, type: 2}
   itemInHand: {fileID: 11400000, guid: 8280dd3770cd14d4ba08ec83fb40ce2f, type: 2}
   interactionCode: {fileID: 11400000, guid: a6dd55253de3f1941a1f6fd7b5589c99, type: 2}
-  btnPressedSound: {fileID: 0}
+  btnPressedSound: {fileID: 11400000, guid: f9058decfc7074d47b98c48a3b083b06, type: 2}
 --- !u!114 &7000965369176123560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 2
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -359,7 +359,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

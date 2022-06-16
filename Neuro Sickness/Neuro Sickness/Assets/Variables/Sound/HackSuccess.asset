@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HackSuccess
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 0}
+  Value: {fileID: 8300000, guid: 64e7d6a18368c4a41902e4939bc08dd8, type: 3}
   PersistBetweenScenes: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MinigameStart
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 0}
+  Value: {fileID: 8300000, guid: fd47a5788a8d33d458693d8f980854cd, type: 3}
   PersistBetweenScenes: 0

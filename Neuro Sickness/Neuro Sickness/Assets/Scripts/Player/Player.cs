@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
         if (_currentStunTime == 0)
         {
             _audio.clip = damageSound.Value;
+            _audio.Play();
             takeDamage.Raise();
         }
     }

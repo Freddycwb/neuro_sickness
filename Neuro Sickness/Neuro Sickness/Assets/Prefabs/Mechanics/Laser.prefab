@@ -52,7 +52,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -88,7 +88,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -264,9 +264,9 @@ MonoBehaviour:
   timeToClose: 0
   timeToStartCouter: 0
   interactionCode: {fileID: 11400000, guid: a6dd55253de3f1941a1f6fd7b5589c99, type: 2}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
-  laserSound: {fileID: 0}
+  openSound: {fileID: 11400000, guid: f5f286c051d188f40a4aca793642ee64, type: 2}
+  closeSound: {fileID: 11400000, guid: 8c2a38ef3fd8c0b41bdfab04ed74e2c2, type: 2}
+  laserSound: {fileID: 11400000, guid: 4d5fd88203af50e449b49424a407b781, type: 2}
 --- !u!114 &5769188829296500276
 MonoBehaviour:
   m_ObjectHideFlags: 0

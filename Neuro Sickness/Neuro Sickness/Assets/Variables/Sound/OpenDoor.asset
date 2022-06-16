@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OpenDoor
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 73cc63e5477c2214384cc332a945f365, type: 3}
+  Value: {fileID: 8300000, guid: 2500d7e526b17e14dbf0307e3c925f34, type: 3}
   PersistBetweenScenes: 0

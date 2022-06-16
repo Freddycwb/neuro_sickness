@@ -956,8 +956,8 @@ MonoBehaviour:
   inventoryFull: {fileID: 11400000, guid: acff7b6b8d39e0d41889d66c463a75eb, type: 2}
   tooFar: {fileID: 11400000, guid: 8aa2504ccebc7de4ea1e9075bae29637, type: 2}
   dangerArea: {fileID: 11400000, guid: e505cc0e8043e044792e62c32a7be0e0, type: 2}
-  collectSound: {fileID: 0}
-  dropSound: {fileID: 0}
+  collectSound: {fileID: 11400000, guid: 7e8795e6594b66c4c8934c900d4a7052, type: 2}
+  dropSound: {fileID: 11400000, guid: 368a93390f4c52c419a3ac0872f467ec, type: 2}
 --- !u!114 &2091152433
 MonoBehaviour:
   m_ObjectHideFlags: 0

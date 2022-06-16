@@ -71,7 +71,7 @@ public class Inventory : MonoBehaviour
         itemSlot[ItemInHand.Value].sprite = slotSprite;
         itemSlot[ItemInHand.Value].transform.localScale = new Vector3(1, 1, 1);
         slots.Value[ItemInHand.Value].SetActive(true);
-        slots.Value[ItemInHand.Value].transform.position = player.Value.transform.position;
+        slots.Value[ItemInHand.Value].transform.position = new Vector3(player.Value.transform.position.x, player.Value.transform.position.y + 1.5f, player.Value.transform.position.z);
         slots.Value[ItemInHand.Value] = null;
     }
 

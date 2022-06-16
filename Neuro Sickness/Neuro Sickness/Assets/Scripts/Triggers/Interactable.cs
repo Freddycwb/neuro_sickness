@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
     public StringVariable interactionCode;
     public SoundVariable btnPressedSound;
 
-    private bool playerInArea, on;
+    private bool playerInArea = false, on;
     private Animator _animatorFront, _animatorSide;
     private AudioSource _audio;
 
@@ -26,10 +26,13 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerInArea = true;
-        if (isTriggerArea && collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            Interact();
+            playerInArea = true;
+            if (isTriggerArea)
+            {
+                Interact();
+            }
         }
     }
 

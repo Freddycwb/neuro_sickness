@@ -165,8 +165,8 @@ MonoBehaviour:
   on: 1
   movementChanger: {fileID: 11400000, guid: cf29e50bd1468a44e8eb42b9ead78713, type: 2}
   interactionCode: {fileID: 11400000, guid: a6dd55253de3f1941a1f6fd7b5589c99, type: 2}
-  _audio: {fileID: 0}
-  conveyorSound: {fileID: 0}
+  _audio: {fileID: 6875315957125217807}
+  conveyorSound: {fileID: 11400000, guid: 10ff9905543631d49b36129c4a414e89, type: 2}
 --- !u!114 &7251646034297778783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -271,7 +271,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HackStart
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 0}
+  Value: {fileID: 8300000, guid: 914dd5a5f1276ff49a3d014348d8bcac, type: 3}
   PersistBetweenScenes: 0

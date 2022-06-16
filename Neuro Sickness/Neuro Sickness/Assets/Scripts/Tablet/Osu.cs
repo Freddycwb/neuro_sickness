@@ -38,7 +38,7 @@ public class Osu : MonoBehaviour
             }
             elementsPositions.Add(new Vector2(x, y));
             var a = Instantiate(osuElement, transform.position, transform.rotation);
-            a.transform.SetParent(gameObject.transform);
+            a.transform.SetParent(gameObject.transform.GetChild(0));
             a.transform.localPosition = new Vector2(x,y);
             a.transform.GetComponentInChildren<TextMeshPro>().text = (i + 1).ToString();
         }
@@ -63,6 +63,13 @@ public class Osu : MonoBehaviour
     public void CancelMinigame()
     {
         minigameIsOver = true;
+        if (transform.GetChild(0).childCount > 0)
+        {
+            for (int i = transform.GetChild(0).childCount - 1; i >= 0; i--)
+            {
+                Destroy(transform.GetChild(0).GetChild(i).gameObject);
+            }
+        }
         gameObject.SetActive(false);
     }
 }

@@ -373,6 +373,7 @@ MonoBehaviour:
   isRunning: {fileID: 11400000, guid: ce6f79732c3d342489d80c7fa8cebb5d, type: 2}
   holdingRun: {fileID: 11400000, guid: ea42d11bfc5091a4c8cb869283d5753d, type: 2}
   stepSound: {fileID: 0}
+  damageSound: {fileID: 0}
   actionButton: {fileID: 11400000, guid: d65295365b2845e4eaecf8359195fe1d, type: 2}
   dropButton: {fileID: 11400000, guid: eaac09d5510a01e429ae09f18dce7e61, type: 2}
   hackCancel: {fileID: 11400000, guid: a565a75c50dba8b408c1538140614525, type: 2}
@@ -536,14 +537,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -581,7 +582,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
