@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool isAreadyOpen, closeAfterPass;
+    public bool isAreadyOpen, closeAfterPass, isUnlocked;
     private bool isOpen;
     public string[] openDoorCode, closeDoorCode, stopTimerCode, toggleDoorStateCode;
     public float timeToOpen, timeToClose, timeToStartCouter;
@@ -160,7 +160,10 @@ public class Door : MonoBehaviour
                 _audio.Play();
             }
         }
-        transform.GetComponent<BoxCollider2D>().isTrigger = false;
+        if (!isUnlocked)
+        {
+            transform.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
         if (timeToOpen > 0)
         {
             _currentTimeToOpen = timeToOpen;
@@ -185,6 +188,14 @@ public class Door : MonoBehaviour
     {
         timeToOpen = 0;
         timeToClose = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isUnlocked)
+        {
+            Open();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

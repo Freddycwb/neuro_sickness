@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAreadyOpen: 0
   closeAfterPass: 0
+  isUnlocked: 0
   openDoorCode: []
   closeDoorCode: []
   stopTimerCode: []

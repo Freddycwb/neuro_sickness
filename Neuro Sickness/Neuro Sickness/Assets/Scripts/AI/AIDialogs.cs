@@ -11,6 +11,8 @@ public class AIDialogs : MonoBehaviour
     public GameEvent aiStopTalk;
     public GameEvent aiStartTalk;
 
+    public TextMeshPro textPanel;
+
     public void Speech(string text)
     {
         aiStartTalk.Raise();
@@ -25,17 +27,17 @@ public class AIDialogs : MonoBehaviour
         {
             if (letter != '.')
             {
-                GetComponentInChildren<TextMeshPro>().text += letter;
+                textPanel.text += letter;
                 yield return new WaitForSeconds(delayBetweenLetters);
             }
             else
             {
                 yield return new WaitForSeconds(delayToHideText);
-                GetComponentInChildren<TextMeshPro>().text = "";
+                textPanel.text = "";
             }
         }
         yield return new WaitForSeconds(delayToHideText);
-        GetComponentInChildren<TextMeshPro>().text = "";
+        textPanel.text = "";
         aiStopTalk.Raise();
     }
 }
