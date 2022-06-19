@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: d152be7b6484cca4e956b901b49458bf, type: 3}
+  Value: {fileID: 8300000, guid: f4ddb8aa061e13e46ba36919cf37324c, type: 3}
   PersistBetweenScenes: 0

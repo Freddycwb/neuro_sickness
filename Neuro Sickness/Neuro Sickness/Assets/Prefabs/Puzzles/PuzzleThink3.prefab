@@ -1308,7 +1308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8284201434049109970
 Transform:
   m_ObjectHideFlags: 0
@@ -1638,6 +1638,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.data[0]
+      value: PuzzleThink3OnHack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.data[0]
+      value: PuzzleThink3OffHack2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
 --- !u!4 &8679185547195645824 stripped
@@ -1703,6 +1719,26 @@ PrefabInstance:
     - target: {fileID: 5769188829296500281, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: isAreadyOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.data[0]
+      value: PuzzleThink3OffHack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.data[0]
+      value: PuzzleThink3OnHack1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
@@ -2000,6 +2036,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.data[0]
+      value: PuzzleThink3OnHack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.data[0]
+      value: PuzzleThink3OffHack2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
 --- !u!4 &8679185546449706994 stripped
@@ -2066,6 +2118,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: isAreadyOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: openDoorCode.Array.data[0]
+      value: PuzzleThink3OffHack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769188829296500283, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
+      propertyPath: closeDoorCode.Array.data[0]
+      value: PuzzleThink3OnHack1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4aae610f27a36a41a6eee113c125f66, type: 3}
 --- !u!4 &8679185546272974500 stripped
@@ -2083,6 +2155,10 @@ PrefabInstance:
     - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: isSwitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
+      propertyPath: difficulty
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: turnOnHack.Array.size
@@ -2110,11 +2186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2163,6 +2239,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 5741769676267282360}
     m_Modifications:
     - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
+      propertyPath: minigame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
+      propertyPath: difficulty
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291373234885732626, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: turnOnHack.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -2188,11 +2272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.25
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2291373234885732628, guid: 3568d6d9339171241afebc11c9ebf17c, type: 3}
       propertyPath: m_LocalPosition.z
