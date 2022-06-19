@@ -372,8 +372,10 @@ MonoBehaviour:
   movementChanger: {fileID: 11400000, guid: cf29e50bd1468a44e8eb42b9ead78713, type: 2}
   isRunning: {fileID: 11400000, guid: ce6f79732c3d342489d80c7fa8cebb5d, type: 2}
   holdingRun: {fileID: 11400000, guid: ea42d11bfc5091a4c8cb869283d5753d, type: 2}
-  stepSound: {fileID: 0}
-  damageSound: {fileID: 0}
+  stepSound: {fileID: 11400000, guid: 934c5247d9349454880b553042028c14, type: 2}
+  damageSound: {fileID: 11400000, guid: c2d3c4bcffacc374ea2fc025eeff6fce, type: 2}
+  stepVolume: 0
+  damageVolume: 0
   actionButton: {fileID: 11400000, guid: d65295365b2845e4eaecf8359195fe1d, type: 2}
   dropButton: {fileID: 11400000, guid: eaac09d5510a01e429ae09f18dce7e61, type: 2}
   hackCancel: {fileID: 11400000, guid: a565a75c50dba8b408c1538140614525, type: 2}

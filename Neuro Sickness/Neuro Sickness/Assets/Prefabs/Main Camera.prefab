@@ -1457,7 +1457,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 65a91d182b50faa4386f9ac63f07daf2, type: 2}
   collectable: {fileID: 11400000, guid: fd2718b0dc9f2234b85b06100512af30, type: 2}
   player: {fileID: 11400000, guid: 2f8430a8fb8acb84e86b0cd3f4f5e471, type: 2}
-  music: {fileID: 0}
+  music: {fileID: 11400000, guid: a53667dcdf3f3b3498b3f9758c59f932, type: 2}
 --- !u!82 &2940636247647092271
 AudioSource:
   m_ObjectHideFlags: 0
