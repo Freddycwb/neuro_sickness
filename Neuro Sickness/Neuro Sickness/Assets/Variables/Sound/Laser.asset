@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: c8ddb6ceedd1b5146b7a7e66d72080b0, type: 3}
+  Value: {fileID: 8300000, guid: 2bf275b7183ec784194865f91189ccbf, type: 3}
   PersistBetweenScenes: 0

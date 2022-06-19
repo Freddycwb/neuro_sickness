@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CloseDoor
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 2500d7e526b17e14dbf0307e3c925f34, type: 3}
+  Value: {fileID: 8300000, guid: eeece146a3875f54c8a9ff0e55167492, type: 3}
   PersistBetweenScenes: 0

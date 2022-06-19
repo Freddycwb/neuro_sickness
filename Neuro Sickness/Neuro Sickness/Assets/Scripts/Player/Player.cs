@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public BoolVariable isRunning;
     public BoolVariable holdingRun;
     public SoundVariable stepSound, damageSound;
+    public float stepVolume, damageVolume;
 
     public GameEvent actionButton;
     public GameEvent dropButton;
@@ -146,6 +147,7 @@ public class Player : MonoBehaviour
         if (_currentStunTime == 0)
         {
             _audio.clip = damageSound.Value;
+            _audio.volume = damageVolume;
             _audio.Play();
             takeDamage.Raise();
         }
@@ -211,6 +213,7 @@ public class Player : MonoBehaviour
     public void StepSound()
     {
         _audio.clip = stepSound.Value;
+        _audio.volume = stepVolume;
         _audio.Play();
     }
 }

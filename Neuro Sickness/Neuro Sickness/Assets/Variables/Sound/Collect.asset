@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Collect
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 969799a777d69734dba75311aba95d7f, type: 3}
+  Value: {fileID: 8300000, guid: 192a96abf0a53624fb16ef53cc1b1f25, type: 3}
   PersistBetweenScenes: 0

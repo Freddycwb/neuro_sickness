@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool isAreadyOpen, closeAfterPass;
+    public bool isAreadyOpen, closeAfterPass, isUnlocked;
     private bool isOpen;
     public string[] openDoorCode, closeDoorCode, stopTimerCode, toggleDoorStateCode;
     public float timeToOpen, timeToClose, timeToStartCouter;
@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     private Animator _animatorFrontDoor, _animatorSideDoor;
     private float _currentTimeToOpen, _currentTimeToClose;
     private AudioSource _audio;
+    private bool firstState;
 
     private void Start()
     {
@@ -22,8 +23,12 @@ public class Door : MonoBehaviour
             transform.GetComponent<SpriteRenderer>().enabled = false;
             _animatorFrontDoor = transform.parent.GetChild(1).GetChild(0).GetComponent<Animator>();
             _animatorSideDoor = transform.parent.GetChild(1).GetChild(1).GetComponent<Animator>();
+            _audio = transform.GetChild(0).GetComponent<AudioSource>();
         }
-        _audio = transform.GetChild(0).GetComponent<AudioSource>();
+        else
+        {
+            _audio = GetComponent<AudioSource>();
+        }
         if (isAreadyOpen)
         {
             Open();
@@ -111,19 +116,26 @@ public class Door : MonoBehaviour
         {
             _animatorFrontDoor.Play("DoorFrontOpen");
             _animatorSideDoor.Play("DoorSideOpen");
-            _audio.clip = openSound.Value;
-            _audio.Play();
+            if (firstState)
+            {
+                _audio.clip = openSound.Value;
+                _audio.Play();
+            }
         }
         else
         {
             transform.GetComponent<SpriteRenderer>().enabled = false;
-            _audio.Stop();
+            if (firstState)
+            {
+                _audio.Stop();
+            }
         }
         transform.GetComponent<BoxCollider2D>().isTrigger = true;
         if (timeToClose > 0)
         {
             _currentTimeToClose = timeToClose;
         }
+        firstState = true;
         isOpen = true;
     }
 
@@ -133,20 +145,30 @@ public class Door : MonoBehaviour
         {
             _animatorFrontDoor.Play("DoorFrontClose");
             _animatorSideDoor.Play("DoorSideClose");
-            _audio.clip = closeSound.Value;
-            _audio.Play();
+            if (firstState)
+            {
+                _audio.clip = closeSound.Value;
+                _audio.Play();
+            }
         }
         else
         {
             transform.GetComponent<SpriteRenderer>().enabled = true;
-            _audio.clip = laserSound.Value;
-            _audio.Play();
+            if (firstState)
+            {
+                _audio.clip = laserSound.Value;
+                _audio.Play();
+            }
         }
-        transform.GetComponent<BoxCollider2D>().isTrigger = false;
+        if (!isUnlocked)
+        {
+            transform.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
         if (timeToOpen > 0)
         {
             _currentTimeToOpen = timeToOpen;
         }
+        firstState = true;
         isOpen = false;
     }
 
@@ -166,6 +188,14 @@ public class Door : MonoBehaviour
     {
         timeToOpen = 0;
         timeToClose = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isUnlocked)
+        {
+            Open();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

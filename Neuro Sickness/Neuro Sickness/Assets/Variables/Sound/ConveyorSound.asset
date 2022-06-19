@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ConveyorSound
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 2fabcee4777fe3144b6c7712606af4b2, type: 3}
+  Value: {fileID: 8300000, guid: e39c21ff214cdd848af40c4c53a039c6, type: 3}
   PersistBetweenScenes: 0
