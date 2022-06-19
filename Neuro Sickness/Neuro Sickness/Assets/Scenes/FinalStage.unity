@@ -5997,10 +5997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd53651d3e74c94fbb521c3d52bd76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: "Usuario 37: Ola novato.Usuario 37: Se quer entrar na area de funcionarios
-    voce primeiro vai precisar pegar um desses cartoes.Usuario 37: Voce n\xE3o vai
-    muito longe sem ele.Usuario 37: A senha para acessar a impressora de cartoes
-    \xE9 X X O.Usuario 37: Seja bem vindo"
+  dialog: "Usuario 37: Ola novato;Usuario 37: Se quer entrar na area de funcionarios
+    voce primeiro vai precisar pegar um desses cartoes;Usuario 37: Voce n\xE3o vai
+    muito longe sem ele;Usuario 37: A senha para acessar a impressora de cartoes
+    \xE9 X X O;Usuario 37: Seja bem vindo"
 --- !u!114 &814629364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6013,7 +6013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec8c2e0e8bf68d4fa29185685d7a6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenLetters: 0.05
+  delayBetweenLetters: 0.1
   delayToHideText: 2
   aiStopTalk: {fileID: 11400000, guid: c24326d7cefacb5479f2c3f3eedba6a0, type: 2}
   aiStartTalk: {fileID: 11400000, guid: 9ca43adc0b3e95346aa5c253edee1054, type: 2}

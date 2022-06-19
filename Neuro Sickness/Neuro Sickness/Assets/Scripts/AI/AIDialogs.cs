@@ -25,7 +25,7 @@ public class AIDialogs : MonoBehaviour
     {
         foreach (char letter in text.ToCharArray())
         {
-            if (letter != '.')
+            if (letter != ';')
             {
                 textPanel.text += letter;
                 yield return new WaitForSeconds(delayBetweenLetters);
