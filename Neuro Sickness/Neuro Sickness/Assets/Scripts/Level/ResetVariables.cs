@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ResetVariables : MonoBehaviour
 {
+    public SpriteRenderer transition;
+    public float transitionSpeed;
+
     public IntVariable itemInHand;
     public IntVariable health;
     public IntVariable maxHealth;
@@ -17,6 +20,7 @@ public class ResetVariables : MonoBehaviour
 
     public StringVariable minigameRequest;
     public StringVariable interactionCode;
+    public StringVariable sceneToLoad;
 
     public Vector3Variable movementChanger;
     public Vector3Variable respawnPosition;
@@ -28,6 +32,8 @@ public class ResetVariables : MonoBehaviour
     public SoundVariable music;
 
     private AudioSource _audio;
+
+    private bool _fadeOut, _fadeIn;
 
     private void Start()
     {
@@ -41,6 +47,7 @@ public class ResetVariables : MonoBehaviour
 
         minigameRequest.Value = "";
         interactionCode.Value = "";
+        sceneToLoad.Value = "FinalStage";
 
         movementChanger.Value = Vector3.zero;
 
@@ -52,10 +59,74 @@ public class ResetVariables : MonoBehaviour
         _audio = GetComponent<AudioSource>();
         _audio.clip = music.Value;
         _audio.Play();
+        StartFadeOut();
+    }
+
+    private void Update()
+    {
+        FadeOut();
+        FadeIn();
+    }
+
+    public void StartFadeOut()
+    {
+        _fadeOut = true;
+    }
+
+    public void FadeOut()
+    {
+        if (_fadeOut)
+        {
+            transition.color = new Color(transition.color.r, transition.color.g, transition.color.b, transition.color.a - Time.deltaTime * transitionSpeed);
+            if (transition.color.a <= 0)
+            {
+                transition.color = new Color(transition.color.r, transition.color.g, transition.color.b, 0);
+                _fadeOut = false;
+            }
+        }
+    }
+
+    public void StartFadeIn()
+    {
+        _fadeIn = true;
+    }
+
+    public void FadeIn()
+    {
+        if (_fadeIn)
+        {
+            transition.color = new Color(transition.color.r, transition.color.g, transition.color.b, transition.color.a + Time.deltaTime * transitionSpeed);
+            if (transition.color.a >= 1)
+            {
+                transition.color = new Color(transition.color.r, transition.color.g, transition.color.b, 1);
+                SceneManager.LoadScene(sceneToLoad.Value);
+                _fadeIn = false;
+            }
+        }
     }
 
     public void Respawn()
     {
-        SceneManager.LoadScene("Station2");
+        sceneToLoad.Value = "FinalStage";
+        StartCoroutine(CallFadeIn());
+    }
+
+    public void End()
+    {
+        sceneToLoad.Value = "End";
+        StartCoroutine(CallFadeIn());
+    }
+
+    public void StartGame()
+    {
+        sceneToLoad.Value = "Intro";
+        StartFadeIn();
+    }
+
+
+    private IEnumerator CallFadeIn()
+    {
+        yield return new WaitForSeconds(2);
+        StartFadeIn();
     }
 }

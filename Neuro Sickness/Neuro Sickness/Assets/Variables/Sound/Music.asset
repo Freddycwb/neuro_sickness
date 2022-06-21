@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Music
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: {fileID: 8300000, guid: 6da24a91e1dc2394486b408a1bc45cbe, type: 3}
+  Value: {fileID: 8300000, guid: e157de6d2bd0db54ebdfce8663852b0e, type: 3}
   PersistBetweenScenes: 0

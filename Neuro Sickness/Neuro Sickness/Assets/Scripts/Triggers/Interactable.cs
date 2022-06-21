@@ -20,8 +20,13 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         _audio = GetComponentInChildren<AudioSource>();
-        _animatorFront = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
-        _animatorSide = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
+        if (!isTriggerArea)
+        {
+            _animatorFront = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+            _animatorSide = transform.GetChild(0).GetChild(1).GetComponent<Animator>();
+            _animatorFront.Play("Click", -1, 0f);
+            _animatorSide.Play("ClickSide", -1, 0f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,13 +67,16 @@ public class Interactable : MonoBehaviour
             {
                 StartCoroutine(CallTurnOnInteractions());
             }
-            if (ItemRequested == "")
+            if (!isTriggerArea) 
             {
-                _audio.clip = btnPressedSound.Value;
-                _audio.Play();
+                if (ItemRequested == "")
+                {
+                    _audio.clip = btnPressedSound.Value;
+                    _audio.Play();
+                }
+                _animatorFront.Play("Click", -1, 0f);
+                _animatorSide.Play("ClickSide", -1, 0f);
             }
-            _animatorFront.Play("Click", -1, 0f);
-            _animatorSide.Play("ClickSide", -1, 0f);
         }
     }
 

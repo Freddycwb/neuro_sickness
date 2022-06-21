@@ -22,7 +22,6 @@ public class LoreDialogs : MonoBehaviour
 
     public void Interacted()
     {
-        Debug.Log(playerInArea);
         if (playerInArea)
         {
             GetComponent<AIDialogs>().Speech(dialog);

@@ -13,7 +13,7 @@ public class Spam : MonoBehaviour
     public bool minigameIsOver;
     public GameEvent hackCompleted;
 
-    private string st = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private string st = "BCEFGHIJKLMNOPRTUVXYZ";
 
     private void OnEnable()
     {
@@ -63,7 +63,7 @@ public class Spam : MonoBehaviour
         char c = st[Random.Range(0,st.Length)];
         currentSymbol = c.ToString();
         symbol.text = currentSymbol;
-        count = 4 / ((difficulty.Value + 5.5f) / 6.25f);
+        count = 4 / ((difficulty.Value + 5.5f) / 4);
     }
 
     public void CompleteMinigame()

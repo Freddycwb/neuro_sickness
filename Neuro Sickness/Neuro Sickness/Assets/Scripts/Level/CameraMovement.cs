@@ -8,8 +8,11 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        float x = Mathf.FloorToInt((player.Value.transform.position.x + 9.75f) / 19.5f) * 19.5f;
-        float y = Mathf.FloorToInt((player.Value.transform.position.y + 5.5f) / 11) * 11;
-        transform.position = new Vector3(x, y, -10);
+        if (player.Value != null)
+        {
+            float x = Mathf.FloorToInt((player.Value.transform.position.x + 9.75f) / 19.5f) * 19.5f;
+            float y = Mathf.FloorToInt((player.Value.transform.position.y + 5.5f) / 11) * 11;
+            transform.position = new Vector3(x, y, -10);
+        }
     }
 }

@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private float _currentStunTime;
     private string _currentState;
     private AudioSource _audio;
+    private bool _death;
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
         {
             _currentStunTime -= Time.deltaTime;
             _rb.velocity = new Vector2(_rb.velocity.x / 1.1f, _rb.velocity.y / 1.1f);
-            if (_currentStunTime <= 0)
+            if (_currentStunTime <= 0 && !_death)
             {
                 _currentStunTime = 0;
                 canControl.Value = true;
@@ -96,7 +97,7 @@ public class Player : MonoBehaviour
 
     private void PlayAnimation()
     {
-        if (_currentStunTime <= 0)
+        if (_currentStunTime <= 0 && !_death)
         {
             if (_rb.velocity.x < 0)
             {
@@ -108,20 +109,23 @@ public class Player : MonoBehaviour
             }
             if (new Vector2(_velocityX, _velocityY).magnitude > 1)
             {
-                ChangeAnimatorState("PlayerWalk");
+                if (isRunning.Value)
+                {
+                    ChangeAnimatorState("PlayerRun");
+                }
+                else
+                {
+                    ChangeAnimatorState("PlayerWalk");
+                }
             }
             if (new Vector2(_velocityX, _velocityY).magnitude == 0)
             {
                 ChangeAnimatorState("PlayerIdle");
             }
-            if (isRunning.Value)
-            {
-                _animator.speed = 1.5f;
-            }
-            else
-            {
-                _animator.speed = 1;
-            }
+        }
+        else if (_currentStunTime <= 0 && _death)
+        {
+            ChangeAnimatorState("PlayerDeath");
         }
         if (_currentStunTime > 0)
         {
@@ -168,15 +172,17 @@ public class Player : MonoBehaviour
     public void Death()
     {
         canControl.Value = false;
+        _death = true;
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Collectable")
+        if (collision.tag == "Collectable" && !_death)
         {
             collectable.Value = collision.gameObject;
         }
-        if (collision.gameObject.tag == "Finish")
+        if (collision.gameObject.tag == "Finish" && !_death)
         {
             gameObject.SetActive(false);
         }
@@ -184,7 +190,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Collectable")
+        if (collision.gameObject.tag == "Collectable" && !_death)
         {
             collectable.Value = null;
         }
@@ -196,7 +202,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Damage")
+        if (collision.gameObject.tag == "Damage" && !_death)
         {
             TakeDamage();
             Knockback(collision.GetContact(0).point, 1);

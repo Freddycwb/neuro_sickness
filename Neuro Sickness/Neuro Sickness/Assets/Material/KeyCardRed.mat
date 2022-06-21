@@ -56,10 +56,10 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - _BlueReplace: {r: 0.4156863, g: 0.4156863, b: 0.4156863, a: 1}
+    - _BlueReplace: {r: 0.509434, g: 0.004485067, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GreenReplace: {r: 0.6509804, g: 0.013017092, b: 0, a: 1}
-    - _RedReplace: {r: 0.9764706, g: 0.16470589, b: 0.28953287, a: 1}
+    - _GreenReplace: {r: 1, g: 0, b: 0.028217316, a: 1}
+    - _RedReplace: {r: 1, g: 0.6938925, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

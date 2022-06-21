@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-    public RectTransform bar;
+    public Image bar;
     public BoolVariable isRunning;
     public BoolVariable holdingRun;
     public FloatVariable stamina;
@@ -53,6 +53,6 @@ public class Stamina : MonoBehaviour
 
     private void UpdateUI()
     {
-        bar.sizeDelta = new Vector2(90 * stamina.Value, bar.sizeDelta.y);
+        bar.fillAmount = stamina.Value / maxStamina.Value;
     }
 }
